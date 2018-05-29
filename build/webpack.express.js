@@ -1,3 +1,6 @@
+/**
+ * webpack express开发环境配置
+ */
 process.env.NODE_ENV = 'dev'
 
 const webpack = require('webpack')

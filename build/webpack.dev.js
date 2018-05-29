@@ -1,3 +1,6 @@
+/**
+ * webpack开发环境配置
+ */
 process.env.NODE_ENV = 'dev'
 
 const path= require('path')
