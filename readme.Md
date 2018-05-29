@@ -15,8 +15,8 @@
 
 官方也有自己的脚手架[vue-cli](https://github.com/vuejs/vue-cli),同样也不适合新手
 
-不过要是对一些基础知识掌握的比较熟悉了，就可以按照自己的需求来[构建项目](/lcStudy/vue/wiki/项目构建)了
+不过要是对一些基础知识掌握的比较熟悉了，就可以按照自己的需求来[构建项目](https://github.com/lcStudy/vue/wiki/项目构建)了
 
 ## 一步步深入了解Vue
 
-+ [一个简单的示例Hello Vue](/lcStudy/vue/wiki/一个简单的示例Hello Vue)
++ [一个简单示例hello vue](https://github.com/lcStudy/vue/wiki/一个简单示例helloVue)
