@@ -19,4 +19,4 @@
 
 ## 一步步深入了解Vue
 
-+ [一个简单示例hello vue](https://github.com/lcStudy/vue/wiki/一个简单示例helloVue)
++ [一个简单示例hello vue](https://github.com/lcStudy/vue/wiki/一个简单示例hello-vue)
