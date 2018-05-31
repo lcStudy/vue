@@ -17,10 +17,14 @@
     <!-- 争取用法 -->
     <p v-bind:id="id"> {{ vBindSuccess }} </p>
 
+    <h3>v-on</h3>
+    <a href="javascript:;" v-on:click="clickOn">点击试试</a>
+
     <h3>js表达式</h3>
     <p>数字计算 {{ num + 1 }}</p>
     <p>三元运算 {{ isTrue ? 'yes' : 'no'}}</p>
     <p>字符计算 {{ text.split('').reverse().join('') }} </p>
+
   </div>
   
 </template>
@@ -37,6 +41,11 @@ export default {
       vBindError: '<p id="{{ id }}">错误用法</p>',
       num : 10,
       isTrue : true
+    }
+  },
+  methods : {
+    clickOn : () => {
+      alert('v-on click test')
     }
   }
 }
