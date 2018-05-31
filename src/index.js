@@ -1,19 +1,20 @@
 
-// import {createApp} from './app'
-
-// const { app } = createApp({})
-
-// app.$mount('#app')
-
 import Vue from 'vue'
 import App from './app.vue'
 
-let createApp = (context = {}) =>{
+let createApp = (Obj ,context = {}) =>{
   return new Vue({
-    el : '#app',
     data: context,
-    render: h => h(App)
+    render: h => h(Obj)
   })
 }
 
-createApp()
+let app = createApp(App)
+
+app.$mount('#app')
+
+// 插值
+
+import Template from './demo/template.vue'
+let tempalte = createApp(Template)
+tempalte.$mount('#template')
