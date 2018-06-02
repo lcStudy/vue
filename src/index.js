@@ -30,3 +30,8 @@ setTimeout(() => {
   computed.fullname = 'C@L'
 }, 1000)
 
+// 侦听器
+import Watch from './demo/watch'
+let watch = Watch()
+watch.$mount('#watch')
+
