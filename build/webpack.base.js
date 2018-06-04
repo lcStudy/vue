@@ -15,6 +15,8 @@ const extractLESS = new ExtractTextPlugin('css/[name].[hash].css')
 
 // entry文件
 const entryApp = path.join(__dirname, './../src/index.js')
+const entryRender = path.join(__dirname, './../src/demo/render.js')
+const entryDemo = path.join(__dirname, './../src/demo/index.js')
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
@@ -22,7 +24,9 @@ let config = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   entry: {
     // verder: 'babel-polyfill', // babel,es6支持
-    app: entryApp
+    app: entryApp,
+    render: entryRender,
+    demo: entryDemo
   },
   output: {
     filename: 'js/[name].[hash].js',
@@ -65,7 +69,18 @@ let config = {
     extractLESS,
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: "src/index.html"
+      template: "src/index.html",
+      chunks: ['commons' , 'app']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'render.html',
+      template: "src/template/render.html",
+      chunks: ['commons', 'render']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'demo.html',
+      template: "src/template/demo.html",
+      chunks: ['commons', 'demo']
     }),
     new webpack.ProvidePlugin({
       // $: 'jquery' // 需要用到jquery去掉注释
