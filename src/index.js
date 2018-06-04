@@ -1,3 +1,4 @@
+import './less/index.less'
 
 import Vue from 'vue'
 import App from './app.vue'
@@ -34,4 +35,8 @@ setTimeout(() => {
 import Watch from './demo/watch'
 let watch = Watch()
 watch.$mount('#watch')
+
+// class，style绑定
+import ClassStyle from './demo/class_style'
+let cs = new ClassStyle()
 

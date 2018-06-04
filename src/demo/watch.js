@@ -21,7 +21,7 @@ let vm = new Vue({
   },
   template : `<div>
     <h2>侦听器示例:简单搜索</h2>
-    <p><input type="search" v-model="keyword" ></p>
+    <p><input type="search" v-model="keyword" ></p>
     <p>{{ searchResult }}</p>
   </div>`
 })
