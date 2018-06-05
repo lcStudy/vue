@@ -15,7 +15,7 @@ let data = Mock.mock({
   }]
 })
 
-console.log(data)
+// console.log(data)
 
 let vm = new Vue({
   el: '#app',
@@ -26,6 +26,20 @@ let vm = new Vue({
       sex: sex
     },
     persons : data.list
+  },
+  computed: {
+    personsFilterSex: function() {
+      return this.persons.filter((person) => {
+        return person.sex == 1
+      })
+    }
+  },
+  methods: {
+    personsFilterBySex: function (sex = 1) {
+      return this.persons.filter((person) => {
+        return person.sex == sex
+      })
+    }
   },
   template: `<div>
     <h2>条件渲染v-if</h2>
@@ -51,7 +65,7 @@ let vm = new Vue({
     <div>
       <ul>
         <li v-for="person in persons">
-          {{ person.name }},Age: {{ person.age }}
+          {{ person.name }},Age: {{ person.age }},sex: {{ person.sex }}
         </li>
       </ul>
     </div>
@@ -61,9 +75,76 @@ let vm = new Vue({
         {{ key }}:{{ value}}
       </p>
     </div>
+    <h2>深入使用</h2>
+    <h3>v-for和v-if一起使用</h3>
+    <div>
+      <ul>
+        <li v-for="person in persons" v-if="person.sex == 1">
+          {{ person.name }},Age: {{ person.age }}
+        </li>
+      </ul>
+    </div>
+    <h3>v-for绑定key</h3>
+    <div>
+      <ul>
+        <li v-for="person in persons" :key="person.id">
+          Id:{{ person.id }} {{ person.name }},Age: {{ person.age }}
+        </li>
+      </ul>
+    </div>
+    <h3>v-for使用计算属性</h3>
+    <div>
+      <ul>
+        <li v-for="person in personsFilterSex">
+          Id:{{ person.id }} {{ person.name }},Age: {{ person.age }}
+        </li>
+      </ul>
+    </div>
+    <h3>v-for使用方法</h3>
+    <div>
+      <ul>
+        <li v-for="person in personsFilterBySex(2)">
+          Id:{{ person.id }} {{ person.name }},Age: {{ person.age }}
+        </li>
+      </ul>
+    </div>
+    <h3>一段取值范围</h3>
+    <div>
+      <span v-for="n in 10">{{ n }} </span>
+    </div>
   </div>`
   
 })
+
+vm.persons.push({
+  id: 11,
+  name: Random.name(),
+  age : Random.natural(1, 40),
+  sex : Random.natural(0, 2)
+})
+
+vm.persons1 = vm.persons.filter((person) =>{
+  return person.sex == 1
+})
+
+console.log('old' , vm.persons)
+console.log('new' , vm.persons1)
+
+// 
+
+let newPerson = {
+  id: 12,
+  name: Random.name(),
+  age: Random.natural(1, 40),
+  sex: Random.natural(0, 2)
+}
+
+// Vue.set(vm.persons , 1 , newPerson)
+// vm.persons.splice(1, 1, newPerson)
+vm.$set(vm.persons, 1, newPerson)
+
+// vm.persons.splice(1)
+vm.$set(vm.person , 'age' , 41)
 
 export default function () {
   return vm
