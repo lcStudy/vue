@@ -6,6 +6,17 @@ let name = Random.name()
 let age = Random.natural(1,40)
 let sex = Random.natural(0,2)
 
+let data = Mock.mock({
+  'list|1-10':[{
+    'id|+1': 1,
+    'name': '@cname',
+    'age|1-40': 0,
+    'sex|0-2': 0
+  }]
+})
+
+console.log(data)
+
 let vm = new Vue({
   el: '#app',
   data: {
@@ -13,7 +24,8 @@ let vm = new Vue({
       name : name,
       age: age,
       sex: sex
-    }
+    },
+    persons : data.list
   },
   template: `<div>
     <h2>条件渲染v-if</h2>
@@ -36,7 +48,19 @@ let vm = new Vue({
       <p v-else>{{person.name}}性别未知</p>
     </div>
     <h2>列表渲染v-for</h2>
-    <div></div>
+    <div>
+      <ul>
+        <li v-for="person in persons">
+          {{ person.name }},Age: {{ person.age }}
+        </li>
+      </ul>
+    </div>
+    <h3>v-for对象</h3>
+    <div>
+      <p v-for="(value ,key , index) in person">
+        {{ key }}:{{ value}}
+      </p>
+    </div>
   </div>`
   
 })
