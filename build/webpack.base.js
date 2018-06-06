@@ -16,7 +16,8 @@ const extractLESS = new ExtractTextPlugin('css/[name].[hash].css')
 // entry文件
 const entryApp = path.join(__dirname, './../src/index.js')
 const entryRender = path.join(__dirname, './../src/demo/render.js')
-const entryDemo = path.join(__dirname, './../src/demo/index.js')
+const entryBase = path.join(__dirname, './../src/demo/base.js')
+const entryEvent = path.join(__dirname, './../src/demo/event.js')
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
@@ -25,8 +26,9 @@ let config = {
   entry: {
     // verder: 'babel-polyfill', // babel,es6支持
     app: entryApp,
-    render: entryRender,
-    demo: entryDemo
+    demoRender: entryRender,
+    demoBase: entryBase,
+    demoEvent: entryEvent
   },
   output: {
     filename: 'js/[name].[hash].js',
@@ -73,14 +75,19 @@ let config = {
       chunks: ['commons' , 'app']
     }),
     new HtmlWebpackPlugin({
-      filename: 'render.html',
-      template: "src/template/render.html",
-      chunks: ['commons', 'render']
+      filename: 'demo/render.html',
+      template: "src/template/demo_render.html",
+      chunks: ['commons', 'demoRender']
     }),
     new HtmlWebpackPlugin({
-      filename: 'demo.html',
-      template: "src/template/demo.html",
-      chunks: ['commons', 'demo']
+      filename: 'demo/base.html',
+      template: "src/template/demo_base.html",
+      chunks: ['commons', 'demoBase']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'demo/event.html',
+      template: "src/template/demo_event.html",
+      chunks: ['commons', 'demoEvent']
     }),
     new webpack.ProvidePlugin({
       // $: 'jquery' // 需要用到jquery去掉注释
