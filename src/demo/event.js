@@ -18,7 +18,7 @@ let vm = new Vue({
       if (event) event.preventDefault()
       alert(this.msg + who)
     },
-    clickMe: function(){
+    clickMe: function (event) {
       alert(this.msg)
     }
   },
@@ -47,7 +47,7 @@ let vm = new Vue({
     </div>
     <h3>按键修饰符</h3>
     <div>
-      <input v-on:keyup.enter="clickMe" v-model="inputVal">
+      <input v-on:keyup.enter="clickMe()" v-model="inputVal">
     </div>
   </div>`
 
