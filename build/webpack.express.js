@@ -9,10 +9,16 @@ const config = require('./webpack.base')
 
 const hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'
 let entry = config.entry
-entry.app = [entry.app, hotMiddlewareScript]
-entry.demoBase = [entry.demoBase, hotMiddlewareScript]
-entry.demoRender = [entry.demoRender, hotMiddlewareScript]
-entry.demoEvent = [entry.demoEvent, hotMiddlewareScript]
+
+for (const key in entry) {
+  entry[key] = [entry[key] , hotMiddlewareScript]
+}
+
+// entry.app = [entry.app, hotMiddlewareScript]
+// entry.demoBase = [entry.demoBase, hotMiddlewareScript]
+// entry.demoRender = [entry.demoRender, hotMiddlewareScript]
+// entry.demoEvent = [entry.demoEvent, hotMiddlewareScript]
+
 config.entry = entry
 
 module.exports = merge(config, {

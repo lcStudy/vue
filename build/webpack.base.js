@@ -14,22 +14,13 @@ const extractCSS = new ExtractTextPlugin('css/[name].[hash].css')
 const extractLESS = new ExtractTextPlugin('css/[name].[hash].css')
 
 // entry文件
-const entryApp = path.join(__dirname, './../src/index.js')
-const entryRender = path.join(__dirname, './../src/demo/render.js')
-const entryBase = path.join(__dirname, './../src/demo/base.js')
-const entryEvent = path.join(__dirname, './../src/demo/event.js')
+let [entrys , htmlPlugins] = require('./entrysAndHtmlPlugins')
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 let config = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
-  entry: {
-    // verder: 'babel-polyfill', // babel,es6支持
-    app: entryApp,
-    demoRender: entryRender,
-    demoBase: entryBase,
-    demoEvent: entryEvent
-  },
+  entry: entrys,
   output: {
     filename: 'js/[name].[hash].js',
     path: path.join(__dirname, './../dist'),
@@ -69,26 +60,26 @@ let config = {
   plugins: [
     extractCSS,
     extractLESS,
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: "src/index.html",
-      chunks: ['commons' , 'app']
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'demo/render.html',
-      template: "src/template/demo_render.html",
-      chunks: ['commons', 'demoRender']
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'demo/base.html',
-      template: "src/template/demo_base.html",
-      chunks: ['commons', 'demoBase']
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'demo/event.html',
-      template: "src/template/demo_event.html",
-      chunks: ['commons', 'demoEvent']
-    }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'index.html',
+    //   template: "src/index.html",
+    //   chunks: ['commons' , 'app']
+    // }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'demo/render.html',
+    //   template: "src/template/demo_render.html",
+    //   chunks: ['commons', 'demoRender']
+    // }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'demo/base.html',
+    //   template: "src/template/demo_base.html",
+    //   chunks: ['commons', 'demoBase']
+    // }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'demo/event.html',
+    //   template: "src/template/demo_event.html",
+    //   chunks: ['commons', 'demoEvent']
+    // }),
     new webpack.ProvidePlugin({
       // $: 'jquery' // 需要用到jquery去掉注释
     }),
@@ -112,5 +103,9 @@ let config = {
     }
   }
 }
+
+htmlPlugins.forEach(htmlPlugin => {
+  config.plugins.push(htmlPlugin)
+})
 
 module.exports = config

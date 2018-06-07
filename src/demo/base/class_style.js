@@ -1,7 +1,8 @@
+// import './../../less/index.less'
 import Vue from 'vue'
 
 let vm = new Vue({
-  el:'#class-style',
+  el:'#app',
   data :{
     isActive : true,
     isDisabled : true,

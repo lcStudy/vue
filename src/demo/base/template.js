@@ -1,6 +1,24 @@
-<template>
+import Vue from 'vue'
 
-  <div>
+let vm = new Vue({
+  el: '#app',
+  data: {
+    id: 'demo1',
+    text: 'text 文本插值',
+    textOnce: '一次性插值不会改变',
+    html: '<small style="color:red;">HTML插值示例</small>',
+    vBindSuccess: '<p v-bind:id="id">正确用法</p>',
+    vBindError: '<p id="{{ id }}">错误用法</p>',
+    num: 10,
+    isTrue: true
+
+  },
+  methods: {
+    clickOn: () => {
+      alert('v-on click test')
+    }
+  },
+  template: `<div>
     <h2>插值示例</h2>
     <h3>文本插值:</h3>
     <p>文本插值: {{ text }}</p>
@@ -25,29 +43,9 @@
     <p>三元运算 {{ isTrue ? 'yes' : 'no'}}</p>
     <p>字符计算 {{ text.split('').reverse().join('') }} </p>
 
-  </div>
-  
-</template>
+  </div>`
+})
 
-<script>
-export default {
-  data (){
-    return {
-      id: 'demo1',
-      text: 'text 文本插值',
-      textOnce: '一次性插值不会改变',
-      html: '<small style="color:red;">HTML插值示例</small>',
-      vBindSuccess : '<p v-bind:id="id">正确用法</p>',
-      vBindError: '<p id="{{ id }}">错误用法</p>',
-      num : 10,
-      isTrue : true
-    }
-  },
-  methods : {
-    clickOn : () => {
-      alert('v-on click test')
-    }
-  }
+export default function () {
+  return vm
 }
-</script>
-
