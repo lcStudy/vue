@@ -12,6 +12,8 @@ const entryDemoRender = path.join(__dirname, './../src/demo/base/render.js') // 
 const entryDemoEvent = path.join(__dirname, './../src/demo/base/event.js') // 事件处理
 const entryDemoForm = path.join(__dirname , './../src/demo/base/form.js') // 表单输入
 
+const entryComponentBase = path.join(__dirname, './../src/demo/component/base.js')
+
 let entry = {
   app: entryApp,
   demoBase: entryBase,
@@ -21,7 +23,8 @@ let entry = {
   demoClass: entryDemoClass,
   demoRender: entryDemoRender,
   demoEvent: entryDemoEvent,
-  demoForm: entryDemoForm
+  demoForm: entryDemoForm,
+  componentBase: entryComponentBase
 }
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -87,6 +90,14 @@ let htmlPlugins = [
     template: "src/template/demo.html",
     chunks: ['commons', 'demoForm']
   }),
+
+  new HtmlWebpackPlugin({
+    title: '组件基础',
+    filename: 'demo/component/base.html',
+    template: "src/template/demo.html",
+    chunks: ['commons', 'componentBase']
+  }),
+
 ]
 
 module.exports = [entry, htmlPlugins]

@@ -28,6 +28,12 @@ let vm = new Vue({
         title: '表单输入',
         url: '/demo/form.html'
       },
+    ],
+    components : [
+      {
+        title: '组件基础',
+        url: '/demo/component/base.html'
+      }
     ]
   },
   template: `<div>
@@ -37,6 +43,10 @@ let vm = new Vue({
         <a :href="item.url" >{{ item.title }}</a>
       </li>
     </ul>
+    <h2>组件</h2>
+      <li v-for="item in components">
+        <a :href="item.url" >{{ item.title }}</a>
+      </li>
   </div>
   `
 })
