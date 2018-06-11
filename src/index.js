@@ -1,18 +1,7 @@
 import './less/index.less'
 
-import Vue from 'vue'
-import App from './app.vue'
+import { createApp } from './app'
 
-let createApp = (Obj ,context = {}) =>{
-  let app =  new Vue({
-    data: context,
-    render: h => h(Obj)
-  })
+let app = createApp()
 
-  return app
-}
-
-let app = createApp(App)
-
-app.$mount('#app')
 
