@@ -1,26 +1,25 @@
 <template>
-  <a :href="url" class="btn" :class="{}"></a>
+  <a :href="url" class="btn" :class="classObj">{{ text }}</a>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      classObj: {
-        'btn-default': true,
-        'btn-success':false,
-        'btn-danger': false,
-      }
     }
     
   },
   props:[
     'type',
-    'url'
+    'url',
+    'text'
   ],
   computed:{
     classObj: function() {
-      
+      let btnType = 'btn-' + (this.type || 'default')
+      let obj = {}
+      obj[btnType] = true
+      return obj
     }
   }
 }

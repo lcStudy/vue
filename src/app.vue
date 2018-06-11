@@ -1,5 +1,10 @@
 <template>
-  <h1> {{ message }} </h1>
+
+  <div>
+    <url-button url="http://baidu.com" type="danger" text="btn-danger" ></url-button>
+    <url-button url="http://baidu.com" type="success" text="btn-success" ></url-button>
+  </div>
+  
 </template>
 
 <script>
@@ -8,7 +13,6 @@
       return {
         message :'Hello Vue!!'
       }
-      
     }
   }
 </script>

@@ -1,7 +1,9 @@
 import './less/index.less'
 
-import { createApp } from './app'
+import { componentRegister , createApp } from './app.js'
 
-let app = createApp()
+componentRegister()
 
+import App from './app.vue'
 
+createApp('#app' , {} , App)
