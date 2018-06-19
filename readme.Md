@@ -31,3 +31,7 @@
   + [1.5.1模板渲染高级](https://github.com/lcStudy/vue/wiki/1.5.1模板渲染高级)
 + [1.6事件处理](https://github.com/lcStudy/vue/wiki/1.6事件处理)
 + [1.7表单输入绑定](https://github.com/lcStudy/vue/wiki/1.7表单输入绑定)
+
+### 组件
++ [2.1组件简介](https://github.com/lcStudy/vue/wiki/2.1组件简介)
++ [2.2组件注册](https://github.com/lcStudy/vue/wiki/2.2组件注册)
