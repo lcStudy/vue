@@ -35,3 +35,5 @@
 ### 组件
 + [2.1组件简介](https://github.com/lcStudy/vue/wiki/2.1组件简介)
 + [2.2组件注册](https://github.com/lcStudy/vue/wiki/2.2组件注册)
++ [2.3组件prop](https://github.com/lcStudy/vue/wiki/2.3组件prop)
++ [2.4组件事件](https://github.com/lcStudy/vue/wiki/2.4组件事件)
