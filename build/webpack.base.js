@@ -99,7 +99,7 @@ let config = {
   resolve: {
     // 特别注意，要使用<template>，在js中import vue时要引入编译好的vue.js
     alias: {
-      'vue': 'vue/dist/vue.js' 
+      'vue$': 'vue/dist/vue.esm.js'
     }
   }
 }

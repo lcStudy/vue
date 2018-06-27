@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
+import routes from './routes'
 
 export function componentRegister() {
   // 组件的全局注册
@@ -38,14 +39,46 @@ export function componentRegister() {
 }
 
 // 创建Vue实例
-export function createApp(el = '#app', context = {} , App = null) {
+// export function createApp(el = '#app', context = {} , App = null) {
 
-  const app = new Vue({
-    data: context,
-    render : h => h(App)
+  // const app = new Vue({
+  //   data: context,
+  //   render : h => h(App)
+  // })
+
+  // app.$mount(el)
+
+  // return app
+
+export function createApp() {
+
+  let app = new Vue({
+    el:'#app',
+    data: {
+      currentRoute: window.location.pathname
+    },
+    computed: {
+      ViewComponent() {
+        const matchingView = routes[this.currentRoute]
+        console.log(matchingView)
+        let ret = matchingView ?
+          require('./pages/' + matchingView + '.vue').default :
+          require('./pages/404.vue').default
+        console.log(ret)
+        return ret
+      }
+    },
+    render: function(h){
+      return h(this.ViewComponent)
+    }
+    // render(h) {
+    //   return h(this.ViewComponent)
+    // }
   })
 
-  app.$mount(el)
+  window.addEventListener('popstate', () => {
+    app.currentRoute = window.location.pathname
+  })
 
   return app
 }
