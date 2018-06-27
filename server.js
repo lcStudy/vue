@@ -22,7 +22,6 @@ app.use(webpackHotMiddleware(compiler, {
 }))
 
 // app.get('*' , async(req , res) => {
-
 // })
 
 // Serve start 
