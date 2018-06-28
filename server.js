@@ -12,7 +12,7 @@ app.get('/foo', async (req, res) => {
   return res.send('bar')
 })
 
-var history = require('connect-history-api-fallback');
+const history = require('connect-history-api-fallback');
 app.use(history({
   index: '/index.html'
 }))
