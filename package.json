@@ -5,11 +5,13 @@
   "main": "index.js",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "connect-history-api-fallback": "^1.5.0",
     "jquery": "^3.3.1",
     "mockjs": "^1.0.1-beta3",
     "promise-polyfill": "7.1.2",
     "superagent": "^3.8.3",
     "vue": "^2.5.16",
+    "vue-router": "^3.0.1",
     "webpack-hot-middleware": "^2.22.2"
   },
   "devDependencies": {
@@ -40,7 +42,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "dev": "webpack-dev-server --config ./build/webpack.dev.js",
     "build": "webpack --config ./build/webpack.prod.js"
   },

@@ -1,0 +1,22 @@
+{
+  "restartable": "rs",
+  "verbose": false,
+  "env": {
+    "NODE_ENV": "local"
+
+  },
+  "execMap": {
+    "": "node",
+    "js": "node"
+  },
+  "watch": [
+    "server.js"
+  ],
+  "ignore": [
+    ".svn",
+    ".git",
+    ".idea",
+    "node_modules/"
+  ],
+  "ext": "js jade json"
+}

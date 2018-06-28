@@ -8,6 +8,15 @@ const webpackHotMiddleware = require('webpack-hot-middleware')
 
 const app = express()
 
+app.get('/foo', async (req, res) => {
+  return res.send('bar')
+})
+
+var history = require('connect-history-api-fallback');
+app.use(history({
+  index: '/index.html'
+}))
+
 const config = require('./build/webpack.express')
 const compiler = webpack(config)
 
@@ -21,9 +30,6 @@ app.use(webpackHotMiddleware(compiler, {
   heartbeat: 10 * 1000
 }))
 
-// app.get('*' , async(req , res) => {
-
-// })
 
 // Serve start 
 const port = 9001
