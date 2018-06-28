@@ -37,3 +37,9 @@
 + [2.2组件注册](https://github.com/lcStudy/vue/wiki/2.2组件注册)
 + [2.3组件prop](https://github.com/lcStudy/vue/wiki/2.3组件prop)
 + [2.4组件事件](https://github.com/lcStudy/vue/wiki/2.4组件事件)
++ [2.5组件插槽](https://github.com/lcStudy/vue/wiki/2.5组件插槽)
++ [2.6动态组件](https://github.com/lcStudy/vue/wiki/2.6动态组件)
+
+路由
++ [3.1路由vue-router](https://github.com/lcStudy/vue/wiki/3.1路由vue-router)
+
